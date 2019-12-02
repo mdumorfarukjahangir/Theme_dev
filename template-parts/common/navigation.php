@@ -13,11 +13,15 @@
     </h2>
 
     <?php
-    wp_nav_menu(array(
+    $philosophy_nav_menu = wp_nav_menu(array(
         'theme_location' => 'topmenu',
         'menu_id' => 'topmenu',
         'menu_class' => 'header__nav',
+        'echo' => false,
+
     ));
+    $philosophy_nav_menu = str_replace("menu-item-has-children", "menu-item-has-children has-children", $philosophy_nav_menu);
+    echo $philosophy_nav_menu;
     ?>
 
     <a href="#0" title="Close Menu" class="header__overlay-close close-mobile-menu">
