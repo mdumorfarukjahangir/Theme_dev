@@ -22,10 +22,12 @@ function philosophy_setup()
         'search-form', 'comment-form', 'comment-list', 'gallery', 'caption'
     ));
     add_theme_support('post-formats', array(
-        'aside', 'image', 'video', 'quote', 'link', 'gallery', 'status', 'audio'
+        'image', 'video', 'quote', 'link', 'gallery', 'audio'
     ));
     add_editor_style('/assets/css/editor-style.css');
     register_nav_menu("topmenu", __("Top Menu", "philosophy"));
+
+    add_image_size("philosophy-home-image", 400,400,true);
 }
 
 add_action('after_setup_theme', 'philosophy_setup');
