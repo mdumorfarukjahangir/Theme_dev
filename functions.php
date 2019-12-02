@@ -27,7 +27,7 @@ function philosophy_setup()
     add_editor_style('/assets/css/editor-style.css');
     register_nav_menu("topmenu", __("Top Menu", "philosophy"));
 
-    add_image_size("philosophy-home-image", 400,400,true);
+    add_image_size("philosophy-home-image", 400, 400, true);
 }
 
 add_action('after_setup_theme', 'philosophy_setup');
@@ -49,3 +49,21 @@ function philosophy_assets()
     wp_enqueue_script('main-js', get_theme_file_uri('/assets/js/main.js'), array("jquery"), "1.0", true);
 }
 add_action('wp_enqueue_scripts', 'philosophy_assets');
+
+function philosophy_home_pagination()
+{
+    global $wp_query;
+    $links = paginate_links(array(
+        'current' => max(1, get_query_var('paged')),
+        'total' => $wp_query->max_num_pages,
+        'type' => 'list',
+        'mid_size' => 2,
+
+    ));
+
+    $links = str_replace("page-numbers", "pgn__num", $links);
+    $links = str_replace("prev pgn__num", "pgn__prev", $links);
+    $links = str_replace("next pgn__num", "pgn__next", $links);
+
+    echo $links;
+}
