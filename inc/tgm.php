@@ -34,6 +34,13 @@ function philosophy_register_required_plugins() {
 			'slug'      => 'advanced-custom-fields',
 			'required'  => false,
 		),
+
+		array(
+			'name'      => 'Attachments',
+			'slug'      => 'attachments',
+			'required'  => false,
+		)
+
  
 	);
 
