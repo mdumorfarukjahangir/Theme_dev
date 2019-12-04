@@ -1,3 +1,12 @@
+<?php
+  $philosophy_audio_file = "";
+  if (function_exists('the_field')) {
+      $philosophy_audio_file = get_field('source_file');
+  }
+?>
+
+
+
 <article class="masonry__brick entry format-audio" data-aos="fade-up">
 
     <div class="entry__thumb">
@@ -7,7 +16,7 @@
             ?>
         </a>
         <div class="audio-wrap">
-            <audio id="player" src="media/AirReview-Landmarks-02-ChasingCorporate.mp3" width="100%" height="42" controls="controls"></audio>
+            <audio id="player" src="<?php echo esc_url($philosophy_audio_file); ?>" width="100%" height="42" controls="controls"></audio>
         </div>
     </div>
 

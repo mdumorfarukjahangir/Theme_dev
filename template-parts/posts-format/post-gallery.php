@@ -1,21 +1,21 @@
 <article <?php post_class('masonry__brick entry format-gallery'); ?> data-aos="fade-up">
 
     <?php
-    if (class_exists("Attachments")) :
+    if (class_exists("Attachments")):
         $attachments = new Attachments("gallery");
-        if ($attachments->exist()) :
+        if ($attachments->exist()):
             ?>
             <div class="entry__thumb slider">
                 <div class="slider__slides">
                     <?php
-                            while ($attachment = $attachments->get()) :
-                                ?>
+                        while ($attachment = $attachments->get()) :
+                    ?>
                         <div class="slider__slide">
-                            <?php echo wp_kses_post($attachments->image("philosophy-home-image")); ?>
+                            <?php echo  $attachments->image("philosophy-home-image"); ?>
                         </div>
                     <?php
-                            endwhile;
-                            ?>
+                     endwhile;
+                    ?>
                 </div>
             </div>
     <?php
