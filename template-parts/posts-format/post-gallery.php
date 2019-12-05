@@ -8,9 +8,11 @@
             <div class="entry__thumb slider">
                 <div class="slider__slides">
                     <?php
+                        
                         while ($attachment = $attachments->get()) :
+                             
                     ?>
-                        <div class="slider__slide">
+                        <div class="slider__slide    ">
                             <?php echo  $attachments->image("philosophy-home-image"); ?>
                         </div>
                     <?php
