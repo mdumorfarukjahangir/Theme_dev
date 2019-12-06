@@ -69,3 +69,7 @@ function philosophy_home_pagination()
 
     echo $links;
 }
+
+
+
+remove_action( "term_description","wpautop");
