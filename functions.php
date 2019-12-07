@@ -74,7 +74,7 @@ function philosophy_home_pagination()
 
 remove_action( "term_description","wpautop");
 
-function philosophy_about_us_widget() {
+function philosophy_widget() {
     register_sidebar( array(
         'name'          => __( 'About Us', 'philosophy' ),
         'id'            => 'about-us',
@@ -84,5 +84,24 @@ function philosophy_about_us_widget() {
         'before_title'  => '<h3 class="quarter-top-margin">',
         'after_title'   => "</h3>",
     ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Contact Us Maps', 'philosophy' ),
+        'id'            => 'contact-us-map',
+        'description'   => __( 'Contact us maps widget', 'philosophy' ),
+        'before_widget' => '<div id="%1$s" class="%2$s">',
+        'after_widget'  => "</div>",
+        'before_title'  => ' ',
+        'after_title'   => " ",
+    ) );
+    register_sidebar( array(
+        'name'          => __( 'Contact us section', 'philosophy' ),
+        'id'            => 'contact-us-section',
+        'description'   => __( 'Contact us maps widget', 'philosophy' ),
+        'before_widget' => '<div class="col-six tab-full %2$s">',
+        'after_widget'  => "</div>",
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
 }
-add_action( 'widgets_init', 'philosophy_about_us_widget' );
+add_action( 'widgets_init', 'philosophy_widget' );
