@@ -26,7 +26,12 @@ function philosophy_setup()
         'image', 'video', 'quote', 'link', 'gallery', 'audio'
     ));
     add_editor_style('/assets/css/editor-style.css');
-    register_nav_menu("topmenu", __("Top Menu", "philosophy"));
+    register_nav_menus( array(
+        'topmenu' => __("Top Menu","philosophy"),
+        'footer_left' => __( 'footer_left', 'philosophy' ),
+        'footer_middle'  => __( 'Footer middle', 'philosophy' ),
+        'footer_right'  => __( 'Footer right', 'philosophy' ),
+    ) );
 
     add_image_size("philosophy-home-image", 400, 400, true);
 }
@@ -41,7 +46,7 @@ function philosophy_assets()
     wp_enqueue_style('fonts-css', get_theme_file_uri('/assets/css/fonts.css'), null, "1.0");
     wp_enqueue_style('base-css', get_theme_file_uri('/assets/css/base.css'), null, "1.0");
     wp_enqueue_style('vendor-css', get_theme_file_uri('/assets/css/vendor.css'), null, "1.0");
-    wp_enqueue_style('main-css', get_theme_file_uri('/assets/css/main.css'), null, "1.0");
+    wp_enqueue_style('main-css', get_theme_file_uri('/assets/css/main.css'), null, "1.0.1");
     wp_enqueue_style('style-css', get_stylesheet_uri(), null, VERSION);
 
     wp_enqueue_script('modernizr-js', get_theme_file_uri('/assets/js/modernizr.js'), null, "1.0");
@@ -112,6 +117,26 @@ function philosophy_widget() {
         'after_widget'  => "</div>",
         'before_title'  => '<h3>',
         'after_title'   => '</h3>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer right', 'philosophy' ),
+        'id'            => 'footerright',
+        'description'   => __( 'Footer right section ', 'philosophy' ),
+        'before_widget' => '<div class="%2$s">',
+        'after_widget'  => "</div>",
+        'before_title'  => '<h4>',
+        'after_title'   => '</h4>',
+    ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Footer bottom', 'philosophy' ),
+        'id'            => 'footer_bottom',
+        'description'   => __( 'Footer Bottom', 'philosophy' ),
+        'before_widget' => '<div class="%2$s">',
+        'after_widget'  => "</div>",
+        'before_title'  => '<span>',
+        'after_title'   => '</span>',
     ) );
 }
 add_action( 'widgets_init', 'philosophy_widget' );
