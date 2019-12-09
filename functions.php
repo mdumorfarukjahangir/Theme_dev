@@ -103,5 +103,16 @@ function philosophy_widget() {
         'before_title'  => '<h3>',
         'after_title'   => '</h3>',
     ) );
+
+    register_sidebar( array(
+        'name'          => __( 'Before footer section ', 'philosophy' ),
+        'id'            => 'before_footer_section',
+        'description'   => __( 'Before footer section ', 'philosophy' ),
+        'before_widget' => '<div class="%2$s">',
+        'after_widget'  => "</div>",
+        'before_title'  => '<h3>',
+        'after_title'   => '</h3>',
+    ) );
 }
 add_action( 'widgets_init', 'philosophy_widget' );
+
